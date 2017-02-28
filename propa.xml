@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Définir un DependencyProperty attaché</Title>
+            <Shortcut>propa</Shortcut>
+            <Description>Extrait de code pour une propriété jointe qui utilise DependencyProperty comme magasin de stockage</Description>
+            <Author>Microsoft Corporation</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Type de propriété</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Nom de propriété</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>Classe propriétaire de cette propriété.  En règle générale, il s'agit de la classe dans laquelle elle est déclarée.</ToolTip>
+					<Function>ClassName()</Function>
+                    <Default>ownerclass</Default>
+                </Literal>
+				<Literal>
+                    <ID>metatdata</ID>
+                    <ToolTip>Class de metadata pour la valeur par défaut.</ToolTip>
+                    <Default>PropertyMetadata</Default>
+                </Literal>
+                <Literal>
+                    <ID>defaultvalue</ID>
+                    <ToolTip>Valeur par défaut pour cette propriété.</ToolTip>
+                    <Default>0</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+                
+public static $type$ Get$property$(DependencyObject obj)
+{
+    return ($type$)obj.GetValue($property$Property);
+}
+
+public static void Set$property$(DependencyObject obj, $type$ value)
+{
+    obj.SetValue($property$Property, value);
+}
+
+public static readonly DependencyProperty $property$Property =
+    DependencyProperty.RegisterAttached("$property$", typeof($type$), typeof($ownerclass$), new $metatdata$($defaultvalue$));
+
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

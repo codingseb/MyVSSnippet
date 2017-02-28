@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>NotifyPropertyChanged Function and PropertyChanged event</Title>
+			<Shortcut>notify</Shortcut>
+			<Description>Extrait de code fonction NotifyPropertyChanged</Description>
+			<Author>Coding Seb</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Imports>  
+				<Import>  
+				   <Namespace>System.Runtime.CompilerServices</Namespace>  
+				</Import>  
+				<Import>  
+				   <Namespace>System.ComponentModel</Namespace>  
+				</Import>  
+			</Imports>  
+			<Code Language="csharp"><![CDATA[public event PropertyChangedEventHandler PropertyChanged;
+
+	private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+	{
+		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+	}
+	$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

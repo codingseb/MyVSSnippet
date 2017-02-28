@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Class with NotifyPropertyChanged function</Title>
+			<Shortcut>notifyclass</Shortcut>
+			<Description>Extrait de code fonction NotifyPropertyChanged</Description>
+			<Author>Coding Seb</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Imports>  
+				<Import>  
+				   <Namespace>System.Runtime.CompilerServices</Namespace>  
+				</Import>  
+				<Import>  
+				   <Namespace>System.ComponentModel</Namespace>  
+				</Import>  
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>ownerclass</ID>
+					<ToolTip>Le nom de la classe</ToolTip>
+					<Function>ClassName()</Function>
+					<Default>ClassName</Default>
+				</Literal>
+			</Declarations>			
+			<Code Language="csharp"><![CDATA[public class $ownerclass$ : INotifyPropertyChanged
+	{
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+	$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
