@@ -40,9 +40,7 @@
                 </Literal>
             </Declarations>
             <Code Language="csharp">
-                <![CDATA[
-
-public $type$ $property$
+                <![CDATA[public $type$ $property$
 {
     get { return ($type$)GetValue($property$Property); }
     set { SetValue($property$Property, value); }
@@ -50,7 +48,6 @@ public $type$ $property$
 
 public static readonly DependencyProperty $property$Property = 
     DependencyProperty.Register("$property$", typeof($type$), typeof($ownerclass$), new $metatdata$($defaultvalue$));
-
 $end$]]>
             </Code>
         </Snippet>
