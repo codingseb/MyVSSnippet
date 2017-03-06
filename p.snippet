@@ -2,9 +2,9 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Simple property with init</Title>
-			<Shortcut>pi</Shortcut>
-			<Description>Une propriété get; set; avec valeur d'initialisation</Description>
+			<Title>Simple property</Title>
+			<Shortcut>p</Shortcut>
+			<Description>Une propriété get; set; raccourci de prop</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
@@ -12,11 +12,6 @@
 		</Header>
 		<Snippet>
 			<Declarations>
-				<Literal>
-					<ID>defaultValue</ID>
-					<ToolTip>La valeur par défaut de la Propriété</ToolTip>
-					<Default>0</Default>
-				</Literal>
 				<Literal>
 					<ID>type</ID>
 					<ToolTip>Le type de la propriété</ToolTip>
@@ -29,7 +24,7 @@
 					<Default>MyProperty</Default>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[public $type$ $property$ { get; set; } = $defaultValue$;$end$]]>
+			<Code Language="csharp"><![CDATA[public $type$ $property$ { get; set; }$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>
