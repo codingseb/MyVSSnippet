@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>NUnit Test With 1 Category</Title>
+			<Shortcut>nu1c</Shortcut>
+			<Description>Une methode de test NUnit avec une Catégorie</Description>
+			<Author>Coding Seb</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Imports>  
+					<Import>  
+					   <Namespace>NUnit.Framework</Namespace>  
+					</Import>   
+				</Imports> 
+				<Literal>
+					<ID>category</ID>
+					<ToolTip>Valeur de la catégorie</ToolTip>
+					<Default>category</Default>
+				</Literal>
+				<Literal>
+					<ID>method</ID>
+					<ToolTip>Le nom de la méthode de test</ToolTip>
+					<Default>method</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[[Category("$category$")]
+			[Test]
+			public void $method$()
+			{
+			
+			}$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
