@@ -20,13 +20,18 @@
 				<Literal>
 					<ID>method</ID>
 					<ToolTip>Le nom de la méthode de test</ToolTip>
-					<Default>method</Default>
+					<Default>MyTestMethod</Default>
+				</Literal>
+				<Literal>
+					<ID>content</ID>
+					<ToolTip>Le contenu de la méthode de test</ToolTip>
+					<Default>// Content</Default>
 				</Literal>
 			</Declarations>
 			<Code Language="csharp"><![CDATA[[Test]
 			public void $method$()
 			{
-			
+				$content$
 			}$end$]]>
 			</Code>
 		</Snippet>
