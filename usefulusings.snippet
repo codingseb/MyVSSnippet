@@ -2,9 +2,9 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Ajoute tous les usings utiles (media à la place de io)</Title>
-			<Shortcut>addusefulusingswithmedia</Shortcut>
-			<Description>Ajoute tous les usings utilisé habituellement (Remplace System.IO par System.Windows.Media. Utilisés séparément pour éviter les conflits de la class Path)</Description>
+			<Title>Ajoute tous les usings utiles</Title>
+			<Shortcut>usefulusings</Shortcut>
+			<Description>Ajoute tous les usings utilisé habituellement</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
@@ -32,6 +32,9 @@
 				</Import>
 				<Import>  
 				   <Namespace>System.Globalization</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>System.IO</Namespace>  
 				</Import>
 				<Import>  
 				   <Namespace>System.Linq</Namespace>  
@@ -68,9 +71,6 @@
 				</Import>
 				<Import>  
 				   <Namespace>System.Windows.Markup</Namespace>  
-				</Import>
-				<Import>  
-				   <Namespace>System.Windows.Media</Namespace>  
 				</Import>
 				<Import>  
 				   <Namespace>System.Xaml</Namespace>  
