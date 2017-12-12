@@ -23,11 +23,6 @@
                     <Default>ownerclass</Default>
                 </Literal>
                 <Literal>
-                    <ID>projectDir</ID>
-                    <ToolTip>Nom du projet</ToolTip>
-                    <Default>projectDir</Default>
-                </Literal>
-                <Literal>
                     <ID>fileName</ID>
                     <ToolTip>Nom du fichier</ToolTip>
                     <Default>fileName</Default>
@@ -38,8 +33,8 @@
                     <Default>errorTitle</Default>
                 </Literal>
             </Declarations>
-            <Code Language="csharp"><![CDATA[private static string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "$projectDir$", "$fileName$.json");
-
+            <Code Language="csharp"><![CDATA[private static string fileName = Path.Combine(PathUtils.AppDataPath, "$fileName$.json");
+        
         private static $ownerclass$ instance = null;
 
         public static $ownerclass$ Instance
