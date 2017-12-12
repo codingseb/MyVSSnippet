@@ -27,7 +27,7 @@
             </Declarations>
             <Code Language="csharp"><![CDATA[public static class PathUtils
     {
-                /// <summary>
+        /// <summary>
         /// The directory where the current application started
         /// </summary>
         public static string StartupPath
@@ -45,7 +45,7 @@
         {
             get
             {
-                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "$appname$");
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasyFind");
             }
         }
 
@@ -56,7 +56,29 @@
         {
             get
             {
-                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "$appname$");
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EasyFind");
+            }
+        }
+
+        /// <summary>
+        /// Search for the specified file in the specified directory if not found go up a directory at a time until it reach the root path.
+        /// </summary>
+        /// <param name="startDirectory">The first directory where to start searching</param>
+        /// <param name="fileName">The file name (without full path) of the file to find</param>
+        /// <returns>If found return the directory path where it is found. It return null otherwise.</returns>
+        public static string FindFileInDirectoryAncestors(string startDirectory, string fileName)
+        {
+            if(File.Exists(Path.Combine(startDirectory, fileName)))
+            {
+                return startDirectory;
+            }
+            else if(startDirectory.Equals(Path.GetPathRoot(startDirectory)))
+            {
+                return null;
+            }
+            else
+            {
+                return FindFileInDirectoryAncestors(Path.GetDirectoryName(startDirectory), fileName);
             }
         }
     }$end$]]>
