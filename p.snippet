@@ -23,8 +23,23 @@
 					<Function>MethodName()</Function>
 					<Default>MyProperty</Default>
 				</Literal>
+				<Literal>
+					<ID>content</ID>
+					<ToolTip>Nom de la propriété</ToolTip>
+					<Default>Content</Default>
+				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[public $type$ $property$ { get; set; }$end$]]>
+			<Code Language="csharp"><![CDATA[public $type$ $property$ 
+        { 
+            get
+            {
+                return $content$;
+            }            
+            set
+            {
+                $content$;
+            }
+        }$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>
