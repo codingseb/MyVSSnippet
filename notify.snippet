@@ -21,7 +21,7 @@
 			</Imports>  
 			<Code Language="csharp"><![CDATA[public event PropertyChangedEventHandler PropertyChanged;
 
-	public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+	public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
 	{
 		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 	}
