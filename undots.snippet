@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Start a transaction with the UndoMethods lib</Title>
+            <Shortcut>undots</Shortcut>
+            <Description></Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>UndoMethods</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>text</ID>
+					<ToolTip>Text to describe the transaction to Undo</ToolTip>
+                    <Default>Text</Default>
+                </Literal>
+                <Literal>
+                    <ID>transaction</ID>
+					<ToolTip>The transaction to start</ToolTip>
+                    <Default>transaction</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[UndoTransaction transaction = new UndoTransaction("$text$");
+            UndoRedoManager.Instance.StartTransaction(transaction); $end$]]></Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

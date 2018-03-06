@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Push a undo action with the UndoMethods lib</Title>
+            <Shortcut>undopush</Shortcut>
+            <Description></Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>UndoMethods</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>action</ID>
+					<ToolTip>Action to do on undo</ToolTip>
+                    <Default>Func(v)</Default>
+                </Literal>
+                <Literal>
+                    <ID>value</ID>
+					<ToolTip>Value to give to the action, (In props the private corresponding value before value attribution)</ToolTip>
+                    <Default>valueToRetrieve</Default>
+                </Literal>
+                <Literal>
+                    <ID>text</ID>
+					<ToolTip>Text to describe the action to Undo</ToolTip>
+                    <Default>Text</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[  UndoRedoManager.Instance.Push(v => $action$, $value$, "$text$"); $end$]]></Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
