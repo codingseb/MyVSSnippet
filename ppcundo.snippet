@@ -2,15 +2,20 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Property with NotifyPropertyChanged</Title>
-			<Shortcut>pn</Shortcut>
-			<Description>Extrait de code pour la propriété avec NotifyPropertyChanged et le champ de stockage</Description>
+			<Title>Property with OnPropertyChanged</Title>
+			<Shortcut>ppcundo</Shortcut>
+			<Description>Extrait de code pour la propriété avec OnPropertyChanged, La gestion des undo/redo et le champ de stockage</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
 			</SnippetTypes>
 		</Header>
 		<Snippet>
+			<Imports>  
+				<Import>  
+				   <Namespace>UndoMethods</Namespace>  
+				</Import>
+			</Imports>
 			<Declarations>
 				<Literal>
 					<ID>type</ID>
@@ -34,8 +39,13 @@
 		get { return $field$;}
 		set 
 		{
-			$field$ = value;
-			NotifyPropertyChanged();
+			if($field$ != value)
+			{
+				UndoRedoManager.Instance.Push(n => this.$property$ = n, $field$, "$property$ changed");
+			
+				$field$ = value;
+				OnPropertyChanged();
+			}
 		}
 	}
 	$end$]]>

@@ -2,9 +2,9 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Property with NotifyPropertyChanged new and init if null</Title>
-			<Shortcut>pnnin</Shortcut>
-			<Description>Extrait de code pour la propriété avec NotifyPropertyChanged et le champ de stockage initialiser avec un new et s'assure d'avoir une instance au get</Description>
+			<Title>Property with OnPropertyChanged new and init if null</Title>
+			<Shortcut>ppcnin</Shortcut>
+			<Description>Extrait de code pour la propriété avec OnPropertyChanged et le champ de stockage initialiser avec un new et s'assure d'avoir une instance au get</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
@@ -42,7 +42,7 @@
 		set 
 		{
 			$field$ = value;
-			NotifyPropertyChanged();
+			OnPropertyChanged();
 		}
 	}
 	$end$]]>
