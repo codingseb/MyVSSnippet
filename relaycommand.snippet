@@ -11,19 +11,29 @@
             </SnippetTypes>
         </Header>
         <Snippet>
-            <Imports>  
-				<Import>  
-				   <Namespace>System</Namespace>  
-				   <Namespace>System.Diagnostics</Namespace>  
-				   <Namespace>System.Windows.Input</Namespace>  
-				</Import>
-            </Imports>
-            <Code Language="csharp"><![CDATA[public class RelayCommand : ICommand
+            <Code Language="csharp"><![CDATA[using System;
+using System.Diagnostics;
+using System.Windows;
+using System.Windows.Input;
+
+namespace Genearbre
+{
+    public class RelayCommand : DependencyObject, ICommand
     {
         #region Fields
 
         readonly Action<object> execute;
         readonly Predicate<object> canExecute;
+
+        public object BindingArgument
+        {
+            get { return (object)GetValue(BindingArgumentProperty); }
+            set { SetValue(BindingArgumentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BindingArgument.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BindingArgumentProperty =
+            DependencyProperty.Register("BindingArgument", typeof(object), typeof(RelayCommand), new PropertyMetadata(null));
 
         #endregion
 
@@ -64,7 +74,9 @@
         }
 
         #endregion
-    }$end$]]>
+    }
+}
+$end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>
