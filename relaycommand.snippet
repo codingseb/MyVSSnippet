@@ -11,14 +11,15 @@
             </SnippetTypes>
         </Header>
         <Snippet>
-            <Code Language="csharp"><![CDATA[using System;
-using System.Diagnostics;
-using System.Windows;
-using System.Windows.Input;
-
-namespace Genearbre
-{
-    public class RelayCommand : DependencyObject, ICommand
+            <Imports>  
+				<Import>  
+				   <Namespace>System</Namespace>  
+				   <Namespace>System.Diagnostics</Namespace>  
+				   <Namespace>System.Windows</Namespace>  
+				   <Namespace>System.Windows.Input</Namespace>  
+				</Import>
+            </Imports>
+            <Code Language="csharp"><![CDATA[public class RelayCommand : DependencyObject, ICommand
     {
         #region Fields
 
@@ -74,9 +75,7 @@ namespace Genearbre
         }
 
         #endregion
-    }
-}
-$end$]]>
+    }$end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>
