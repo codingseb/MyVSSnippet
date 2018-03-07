@@ -19,22 +19,12 @@
 				   <Namespace>System.Windows.Input</Namespace>  
 				</Import>
             </Imports>
-            <Code Language="csharp"><![CDATA[public class RelayCommand : DependencyObject, ICommand
+            <Code Language="csharp"><![CDATA[public class RelayCommand : ICommand
     {
         #region Fields
 
         readonly Action<object> execute;
         readonly Predicate<object> canExecute;
-
-        public object BindingArgument
-        {
-            get { return (object)GetValue(BindingArgumentProperty); }
-            set { SetValue(BindingArgumentProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for BindingArgument.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty BindingArgumentProperty =
-            DependencyProperty.Register("BindingArgument", typeof(object), typeof(RelayCommand), new PropertyMetadata(null));
 
         #endregion
 
