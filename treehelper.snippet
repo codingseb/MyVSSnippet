@@ -27,9 +27,12 @@
                     <Default>objectToSerialize</Default>
                 </Literal>
             </Declarations>
-            <Code Language="csharp"><![CDATA[ public static T FindVisualParent<T>(this DependencyObject child)
+            <Code Language="csharp"><![CDATA[         public static T FindVisualParent<T>(this DependencyObject child)
             where T : DependencyObject
         {
+            if (!(child is Visual || child is Visual3D))
+                return FindVisualParent<T>(LogicalTreeHelper.GetParent(child));
+
             // get parent item
             var parentObject = VisualTreeHelper.GetParent(child);
 
@@ -50,6 +53,9 @@
 
         public static object FindVisualParent(this DependencyObject child, Func<DependencyObject, bool> predicate)
         {
+            if (!(child is Visual || child is Visual3D))
+                return FindVisualParent(LogicalTreeHelper.GetParent(child), predicate);
+
             // get parent item
             var parentObject = VisualTreeHelper.GetParent(child);
 
