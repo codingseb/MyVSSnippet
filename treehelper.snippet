@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Some extention methods to implement in a static class to browse easily Visual and Logical Tree</Title>
+            <Shortcut>treehelper</Shortcut>
+            <Description></Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>System</Namespace>  
+				   <Namespace>System.Collections.Generic</Namespace>  
+				   <Namespace>System.Linq</Namespace>  
+				   <Namespace>System.Windows</Namespace>  
+				   <Namespace>System.Windows.Media</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>obj</ID>
+					<ToolTip>L'objet à serializer</ToolTip>
+                    <Default>objectToSerialize</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[ public static T FindVisualParent<T>(this DependencyObject child)
+            where T : DependencyObject
+        {
+            // get parent item
+            var parentObject = VisualTreeHelper.GetParent(child);
+
+            // we’ve reached the end of the tree
+            if (parentObject == null) return null;
+
+            // check if the parent matches the type we’re looking for
+            if (parentObject is T parent)
+            {
+                return parent;
+            }
+            else
+            {
+                // use recursion to proceed with next level
+                return FindVisualParent<T>(parentObject);
+            }
+        }
+
+        public static object FindVisualParent(this DependencyObject child, Func<DependencyObject, bool> predicate)
+        {
+            // get parent item
+            var parentObject = VisualTreeHelper.GetParent(child);
+
+            // we’ve reached the end of the tree
+            if (parentObject == null) return null;
+
+            // check if the parent matches the predicate we looking for
+            if (predicate.Invoke(parentObject))
+            {
+                return parentObject;
+            }
+            else
+            {
+                // use recursion to proceed with next level
+                return FindVisualParent(parentObject, predicate);
+            }
+        }
+
+        public static T FindLogicalParent<T>(this DependencyObject child)
+            where T : DependencyObject
+        {
+            // get parent item
+            var parentObject = LogicalTreeHelper.GetParent(child);
+
+            // we’ve reached the end of the tree
+            if (parentObject == null) return null;
+
+            // check if the parent matches the type we’re looking for
+            if (parentObject is T parent)
+            {
+                return parent;
+            }
+            else
+            {
+                // use recursion to proceed with next level
+                return FindVisualParent<T>(parentObject);
+            }
+        }
+
+        public static object FindLogicalParent(this DependencyObject child, Func<DependencyObject, bool> predicate)
+        {
+            // get parent item
+            var parentObject = LogicalTreeHelper.GetParent(child);
+
+            // we’ve reached the end of the tree
+            if (parentObject == null) return null;
+
+            // check if the parent matches the predicate we looking for
+            if (predicate.Invoke(parentObject))
+            {
+                return parentObject;
+            }
+            else
+            {
+                // use recursion to proceed with next level
+                return FindLogicalParent(parentObject, predicate);
+            }
+        }
+
+        public static T TryVisualFindFromPoint<T>(this UIElement reference, Point point)
+          where T : DependencyObject
+        {
+            var element = reference.InputHitTest(point) as DependencyObject;
+            if (element == null) return null;
+            if (element is T) return (T)element;
+            return FindVisualParent<T>(element);
+        }
+
+        public static T TryLogicalFindFromPoint<T>(this UIElement reference, Point point)
+          where T : DependencyObject
+        {
+            var element = reference.InputHitTest(point) as DependencyObject;
+            if (element == null) return null;
+            if (element is T) return (T)element;
+            return FindLogicalParent<T>(element);
+        }
+
+        public static IEnumerable<object> LogicalTreeDepthFirstTraversal(this DependencyObject node)
+        {
+            if (node == null) yield break;
+            yield return node;
+
+            foreach (var child in LogicalTreeHelper.GetChildren(node).OfType<DependencyObject>()
+                .SelectMany(depObj => depObj.LogicalTreeDepthFirstTraversal()))
+                yield return child;
+        }
+
+        public static IEnumerable<object> VisualTreeDepthFirstTraversal(this DependencyObject node)
+        {
+            if (node == null) yield break;
+            yield return node;
+
+            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(node); i++)
+            {
+                var child = VisualTreeHelper.GetChild(node, i);
+                foreach (var d in child.VisualTreeDepthFirstTraversal())
+                {
+                    yield return d;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Yields the visual ancestory (including the starting point).
+        /// </summary>
+        /// <param name="dependencyObject"></param>
+        /// <returns></returns>
+        public static IEnumerable<DependencyObject> VisualTreeAncestory(this DependencyObject dependencyObject)
+        {
+            if (dependencyObject == null) throw new ArgumentNullException("dependencyObject");
+
+            while (dependencyObject != null)
+            {
+                yield return dependencyObject;
+                dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
+            }
+        }
+
+        /// <summary>
+        /// Yields the logical ancestory (including the starting point).
+        /// </summary>
+        /// <param name="dependencyObject"></param>
+        /// <returns></returns>
+        public static IEnumerable<DependencyObject> LogicalTreeAncestory(this DependencyObject dependencyObject)
+        {
+            if (dependencyObject == null) throw new ArgumentNullException("dependencyObject");
+
+            while (dependencyObject != null)
+            {
+                yield return dependencyObject;
+                dependencyObject = LogicalTreeHelper.GetParent(dependencyObject);
+            }
+        } $end$]]></Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
