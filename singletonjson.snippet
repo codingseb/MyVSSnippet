@@ -33,7 +33,7 @@
                     <Default>errorTitle</Default>
                 </Literal>
             </Declarations>
-            <Code Language="csharp"><![CDATA[private static string fileName = Path.Combine(PathUtils.AppDataPath, "$fileName$.json");
+            <Code Language="csharp"><![CDATA[private static string fileName = Path.Combine(PathUtils.AppDataRoamingPath, "$fileName$.json");
         
         private static $ownerclass$ instance = null;
 
