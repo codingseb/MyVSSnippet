@@ -33,7 +33,9 @@
                     <Default>errorTitle</Default>
                 </Literal>
             </Declarations>
-            <Code Language="csharp"><![CDATA[private static string fileName = Path.Combine(PathUtils.AppDataRoamingPath, "$fileName$.json");
+            <Code Language="csharp"><![CDATA[#region Json singleton
+            
+        private static string fileName = Path.Combine(PathUtils.AppDataRoamingPath, "$fileName$.json");
         
         private static $ownerclass$ instance = null;
 
@@ -79,6 +81,8 @@
 			
 			private $ownerclass$()
 			{}
+            
+            #endregion
 	$end$]]>
             </Code>
         </Snippet>

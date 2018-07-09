@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>The minimal code to save the position size and window state of a window</Title>
+            <Shortcut>windowrectconfig</Shortcut>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>windowName</ID>
+                    <ToolTip>Name of the window</ToolTip>
+                    <Default>WindowName</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[                public double? $windowName$Left { get; set; }
+        public double? $windowName$Top { get; set; }
+        public double? $windowName$Width { get; set; }
+        public double? $windowName$Height { get; set; }
+        public bool $windowName$Maximized { get; set; }
+
+        //-------------------------------------------------------------------------------------------------
+        
+        // Code to copy in the constructor of $windowName$ or in a Init method called in constructor
+        //this.Left = Config.Instance.$windowName$Left ?? Left;
+        //this.Top = Config.Instance.$windowName$Top ?? Top;
+        //this.Width = Config.Instance.$windowName$Width ?? Width;
+        //this.Height = Config.Instance.$windowName$Height ?? Height;
+
+        //this.WindowState = Config.Instance.$windowName$Maximized ? WindowState.Maximized : WindowState.Normal;
+        
+        //-------------------------------------------------------------------------------------------------
+        
+        //-------------------------------------------------------------------------------------------------
+        
+        // Code to copy in the Window_Closing method of $windowName$ (or a method pointed by the Closing event of $windowName$)
+        //Config.Instance.$windowName$Left = this.Left;
+        //Config.Instance.$windowName$Top = this.Top;
+        //Config.Instance.$windowName$Width = this.ActualWidth;
+        //Config.Instance.$windowName$Height = this.ActualHeight;
+
+        //Config.Instance.$windowName$Maximized = this.WindowState == WindowState.Maximized;
+
+        //Config.Instance.Save();        
+        //-------------------------------------------------------------------------------------------------
+        
+        
+	$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
