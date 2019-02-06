@@ -2,9 +2,9 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Property with OnPropertyChanged and new</Title>
-			<Shortcut>ppcn</Shortcut>
-			<Description>Extrait de code pour la propriété avec OnPropertyChanged et le champ de stockage initialiser avec un new</Description>
+			<Title>Property + attribut correspondant</Title>
+			<Shortcut>propattr</Shortcut>
+			<Description>Extrait de code pour la propriété et le champ de stockage initialiser avec un new</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
@@ -39,7 +39,6 @@
 		set 
 		{
 			$field$ = value;
-			OnPropertyChanged();
 		}
 	}
 	$end$]]>

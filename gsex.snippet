@@ -2,27 +2,26 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Simple property</Title>
-			<Shortcut>p</Shortcut>
-			<Description>Une propriété get; set; avec contenu</Description>
+			<Title>get and set extanded</Title>
+			<Shortcut>gsex</Shortcut>
+			<Description>
+            { 
+                get
+                {
+                
+                }                
+                set
+                {
+                
+                }                
+            }</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
 			</SnippetTypes>
 		</Header>
 		<Snippet>
-			<Declarations>
-				<Literal>
-					<ID>type</ID>
-					<ToolTip>Le type de la propriété</ToolTip>
-					<Default>int</Default>
-				</Literal>
-				<Literal>
-					<ID>property</ID>
-					<ToolTip>Nom de la propriété</ToolTip>
-					<Function>MethodName()</Function>
-					<Default>MyProperty</Default>
-				</Literal>
+            <Declarations>
 				<Literal>
 					<ID>contentget</ID>
 					<ToolTip>contenu du get</ToolTip>
@@ -34,16 +33,16 @@
 					<Default>ContentSet</Default>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[public $type$ $property$ 
+			<Code Language="csharp"><![CDATA[
         { 
             get
             {
-                $contentget$
+                //$contentget$
             }                
             set
             {
-                $contentset$
-            } 
+                //$contentset$
+            }                
         }$end$]]>
 			</Code>
 		</Snippet>
