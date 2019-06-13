@@ -24,12 +24,7 @@
 			{
 				get
 				{
-					if(instance == null)
-					{
-						instance = new $ownerclass$();
-					}
-				
-					return instance;
+					return instance ?? (instance = new $ownerclass$());
 				}
 			}
 			
