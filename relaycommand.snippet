@@ -4,7 +4,7 @@
         <Header>
             <Title>RelayCommand class</Title>
             <Shortcut>relaycommand</Shortcut>
-            <Description>La classe Relay command en entier pour mapper une commande sur les méthode Execute et CanExecute</Description>
+            <Description>La classe RelayCommand en entier pour mapper une commande sur les méthode Execute et CanExecute</Description>
             <Author>Coding Seb</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -13,9 +13,15 @@
         <Snippet>
             <Imports>  
 				<Import>  
-				   <Namespace>System</Namespace>  
+				   <Namespace>System</Namespace> 
+				</Import>
+				<Import>
 				   <Namespace>System.Diagnostics</Namespace>  
+				</Import>
+				<Import>
 				   <Namespace>System.Windows</Namespace>  
+				</Import>
+				<Import>
 				   <Namespace>System.Windows.Input</Namespace>  
 				</Import>
             </Imports>
@@ -23,8 +29,8 @@
     {
         #region Fields
 
-        readonly Action<object> execute;
-        readonly Predicate<object> canExecute;
+        private readonly Action<object> execute;
+        private readonly Predicate<object> canExecute;
 
         #endregion
 
@@ -37,7 +43,7 @@
 
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
-            this.execute = execute ?? throw new ArgumentNullException("execute");
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
             this.canExecute = canExecute;
         }
         #endregion
@@ -47,7 +53,7 @@
         [DebuggerStepThrough]
         public bool CanExecute(object parameter)
         {
-            return canExecute == null ? true : canExecute(parameter);
+            return canExecute?.Invoke(parameter) ?? false;
         }
 
         public event EventHandler CanExecuteChanged
