@@ -31,6 +31,27 @@
         //Top = Config.Instance.$windowName$Top ?? Top;
         //Width = Config.Instance.$windowName$Width ?? Width;
         //Height = Config.Instance.$windowName$Height ?? Height;
+		
+		//// To Manage multi screen to one screen and not lose the window outside the screen
+		//if (Top < SystemParameters.VirtualScreenTop)
+		//{
+		//    Top = SystemParameters.VirtualScreenTop;
+		//}
+
+		//if (Left < SystemParameters.VirtualScreenLeft)
+		//{
+		//    Left = SystemParameters.VirtualScreenLeft;
+		//}
+
+		//if (Left + Width > SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth)
+		//{
+		//    Left = SystemParameters.VirtualScreenWidth + SystemParameters.VirtualScreenLeft - Width;
+		//}
+
+		//if (Top + Height > SystemParameters.VirtualScreenTop + SystemParameters.VirtualScreenHeight)
+		//{
+		//    Top = SystemParameters.VirtualScreenHeight + SystemParameters.VirtualScreenTop - Height;
+		//}
 
         //WindowState = Config.Instance.$windowName$Maximized ? WindowState.Maximized : WindowState.Normal;
         
