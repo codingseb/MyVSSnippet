@@ -14,23 +14,21 @@
             <Declarations>
                 <Literal Editable="false">
                     <ID>ownerclass</ID>
-					<Function>ClassName()</Function>
+                    <Function>ClassName()</Function>
                     <Default>ownerclass</Default>
                 </Literal>
             </Declarations>
-            <Code Language="csharp"><![CDATA[private static $ownerclass$ instance = null;
-			
-			public static $ownerclass$ Instance
-			{
-				get
-				{
-					return instance ?? (instance = new $ownerclass$());
-				}
-			}
-			
-			private $ownerclass$()
-			{}
-	$end$]]>
+            <Code Language="csharp"><![CDATA[#region Singleton          
+            
+            private static MainViewModel instance;
+
+            public static MainViewModel Instance => instance ?? (instance = new MainViewModel());
+
+            private MainViewModel()
+            { }
+            
+            #endregion
+    $end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>
