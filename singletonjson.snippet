@@ -35,7 +35,7 @@
             </Declarations>
             <Code Language="csharp"><![CDATA[#region Json singleton
             
-        private static string fileName = Path.Combine(PathUtils.AppDataPath, "$fileName$.json");
+        private static readonly string fileName = Path.Combine(PathUtils.AppDataPath, "$fileName$.json");
         
         private static $ownerclass$ instance;
 

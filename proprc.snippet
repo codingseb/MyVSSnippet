@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>RelayCommand Property</Title>
+            <Shortcut>proprc</Shortcut>
+            <Description>La déclaration d'une propriété RelayCommand de base</Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+			<Imports>  
+				<Import>
+				   <Namespace>System.Windows.Input</Namespace>  
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>type</ID>
+					<ToolTip>Property type</ToolTip>
+					<Default>int</Default>
+				</Literal>
+				<Literal>
+					<ID>property</ID>
+					<ToolTip>Property name</ToolTip>
+					<Default>MyProperty</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[public ICommand $property$ { get; } = new RelayCommand(_ => 
+		{
+			//TODO$end$
+		});$end$]]>
+			</Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
