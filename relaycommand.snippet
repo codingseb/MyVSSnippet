@@ -53,7 +53,7 @@
         [DebuggerStepThrough]
         public bool CanExecute(object parameter)
         {
-            return canExecute?.Invoke(parameter) ?? false;
+            return canExecute?.Invoke(parameter) ?? true;
         }
 
         public event EventHandler CanExecuteChanged
