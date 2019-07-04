@@ -22,7 +22,7 @@
                 <Literal>
                     <ID>appname</ID>
                     <ToolTip>Nom du projet</ToolTip>
-                    <Default>ApplicationName</Default>
+                    <Default>Assembly.GetExecutingAssembly().GetName().Name</Default>
                 </Literal>
             </Declarations>
             <Code Language="csharp"><![CDATA[public static class PathUtils
@@ -89,7 +89,7 @@
         /// <param name="replacement">The text to use to replace all invalids characters (by default : "_")</param>
         public static string GetSafeFilename(string filename, string replacement = "_")
         {
-            return string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));
+            return string.Join(replacement, filename.Split(Path.GetInvalidFileNameChars()));
         }
     }$end$]]>
             </Code>
