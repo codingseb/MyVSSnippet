@@ -25,7 +25,10 @@
                     <Default>Assembly.GetExecutingAssembly().GetName().Name</Default>
                 </Literal>
             </Declarations>
-            <Code Language="csharp"><![CDATA[public static class PathUtils
+            <Code Language="csharp"><![CDATA[/// <summary>
+    /// A common place to group io paths relative to the application and io utils functions
+    /// </summary>
+	public static class PathUtils
     {
         /// <summary>
         /// The directory where the current application started
