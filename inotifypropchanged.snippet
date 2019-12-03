@@ -2,9 +2,9 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>OnPropertyChanged Function</Title>
-			<Shortcut>onpropchanged</Shortcut>
-			<Description>Extrait de code fonction OnPropertyChanged</Description>
+			<Title>INotifyPropertyChanged Interface</Title>
+			<Shortcut>inotifypropchanged</Shortcut>
+			<Description>To implement the interface INotifyPropertyChanged when the using are not here</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
@@ -19,11 +19,7 @@
 				   <Namespace>System.ComponentModel</Namespace>  
 				</Import>  
 			</Imports>  
-			<Code Language="csharp"><![CDATA[public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
-	{
-		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-	}
-	$end$]]>
+			<Code Language="csharp"><![CDATA[INotifyPropertyChanged$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>

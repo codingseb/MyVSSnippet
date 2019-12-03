@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>ObservableCollection snippet for when you have not the using. (add it automatically)</Title>
+            <Shortcut>observablecollection</Shortcut>
+            <Description></Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>System.Collections.ObjectModel</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+					<ToolTip>the type of the content of the observable collection</ToolTip>
+                    <Default>object</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[ObservableCollection<$type$>$end$]]></Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

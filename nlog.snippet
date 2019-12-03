@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>A Basic log (NLog)</Title>
+			<Shortcut>nlog</Shortcut>
+			<Description>The minimal code to log with NLog</Description>
+			<Author>Coding Seb</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>NLog</Namespace>  
+				</Import>  
+			</Imports>  
+             <Declarations>
+                <Literal>
+                    <ID>params</ID>
+					<ToolTip>The stuff to log</ToolTip>
+                    <Default>params</Default>
+                </Literal>
+                <Literal>
+                    <ID>LogMethod</ID>
+					<ToolTip>The log method</ToolTip>
+                    <Default>Error</Default>
+                </Literal>
+            </Declarations>
+			<Code Language="csharp"><![CDATA[logger.$LogMethod$($params$);$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

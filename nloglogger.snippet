@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>The static logger for the current class</Title>
+			<Shortcut>nloglogger</Shortcut>
+			<Description>Create a NLog static logger as an attribut of the current class (Add the using NLog)</Description>
+			<Author>Coding Seb</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>NLog</Namespace>  
+				</Import>  
+			</Imports>  
+			<Code Language="csharp"><![CDATA[private static readonly Logger logger = LogManager.GetCurrentClassLogger();$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -2,16 +2,16 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Ajoute tous les usings utiles</Title>
-			<Shortcut>usingmvvm</Shortcut>
-			<Description>Ajoute tous les usings utilisé habituellement</Description>
+			<Title>Ajoute tous les usings standard avec cles using WPF</Title>
+			<Shortcut>usingswpf</Shortcut>
+			<Description>Ajoute tous les usings utilisé habituellement avec ce qu'il faut en WPF</Description>
 			<Author>Coding Seb</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
 			</SnippetTypes>
 		</Header>
 		<Snippet>
-			<Imports>
+			<Imports>  
 				<Import>  
 				   <Namespace>System</Namespace>  
 				</Import>
@@ -58,14 +58,32 @@
 				   <Namespace>System.Threading.Tasks</Namespace>  
 				</Import>
 				<Import>  
-				   <Namespace>WPFMvvm</Namespace>  
+				   <Namespace>System.Windows</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>System.Windows.Controls</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>System.Windows.Data</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>System.Windows.Input</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>System.Windows.Markup</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>System.Xaml</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>Media = System.Windows.Media</Namespace> 
 				</Import>
             </Imports>
 			<Declarations>
 				<Literal>
 					<ID>using</ID>
-					<ToolTip>Le nom de la classe</ToolTip>
-					<Default>usings WPFMvvM added</Default>
+					<ToolTip>To remove</ToolTip>
+					<Default>//useful usings added</Default>
 				</Literal>
 			</Declarations>			
 			<Code Language="csharp"><![CDATA[$using$$end$]]>

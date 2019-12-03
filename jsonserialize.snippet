@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Basic serialization of object with Newtonsoft.Json</Title>
+            <Shortcut>jsonserialize</Shortcut>
+            <Description></Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>Newtonsoft.Json</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>obj</ID>
+					<ToolTip>L'objet à serializer</ToolTip>
+                    <Default>objectToSerialize</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[ JsonConvert.SerializeObject($obj$) $end$]]></Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

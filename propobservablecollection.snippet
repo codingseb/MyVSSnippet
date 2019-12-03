@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Snippet to declare a ObservableCollection property</Title>
+            <Shortcut>propobservablecollection</Shortcut>
+            <Description></Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>System.Collections.ObjectModel</Namespace>  
+				</Import>
+				<Import>  
+				   <Namespace>System.Collections.Generic</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+					<ToolTip>the type of the content of the observable collection</ToolTip>
+                    <Default>object</Default>
+                </Literal>
+                <Literal>
+                    <ID>typeofcollection</ID>
+					<ToolTip>The declaring type of collection property</ToolTip>
+                    <Default>IList</Default>
+                </Literal>
+                <Literal>
+                    <ID>name</ID>
+					<ToolTip>The name of the property property</ToolTip>
+                    <Default>PropertyName</Default>
+                </Literal>
+                <Literal>
+                    <ID>content</ID>
+					<ToolTip>To declare the content of the Collection inline</ToolTip>
+                    <Default></Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[$typeofcollection$<$type$> $name$ { get; set; } = new ObservableCollection<$type$>()$content$;$end$]]></Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
