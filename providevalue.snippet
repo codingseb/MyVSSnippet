@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Basic ProvideValue Method</Title>
+			<Shortcut>providevalue</Shortcut>
+			<Description>Add standard ProvideValue to use the current class as avalonia markup extension</Description>
+			<Author>Coding Seb</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>type</ID>
+					<Default>object</Default>
+				</Literal>
+				<Literal>
+					<ID>method</ID>
+					<Default>MyMethod</Default>
+				</Literal>
+				<Literal>
+					<ID>params</ID>
+					<Default>IServiceProvider provider</Default>
+				</Literal>
+				<Literal>
+					<ID>content</ID>
+					<Default>return this;</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[public $type$ ProvideValue($params$)
+        {
+            $content$
+        }$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
