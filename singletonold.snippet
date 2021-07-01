@@ -3,7 +3,7 @@
     <CodeSnippet Format="1.0.0">
         <Header>
             <Title>The basic implementation of the Singleton pattern</Title>
-            <Shortcut>singletonnewcs</Shortcut>
+            <Shortcut>singletonold</Shortcut>
             <Author>Coding Seb</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -21,7 +21,7 @@
             
             private static $ownerclass$ instance;
 
-            public static $ownerclass$ Instance => instance ??= new $ownerclass$();
+            public static $ownerclass$ Instance => instance ?? (instance = new $ownerclass$());
 
             private $ownerclass$()
             { }

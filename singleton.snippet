@@ -21,7 +21,7 @@
             
             private static $ownerclass$ instance;
 
-            public static $ownerclass$ Instance => instance ?? (instance = new $ownerclass$());
+            public static $ownerclass$ Instance => instance ??= new $ownerclass$();
 
             private $ownerclass$()
             { }
