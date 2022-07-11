@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Définir une AttachedProperty Avalonia UI attaché</Title>
+            <Shortcut>avapropa</Shortcut>
+            <Description>Extrait de code pour une Attached property Avalonia UI</Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>Avalonia</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Type de propriété</ToolTip>
+                    <Default>object</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Nom de propriété</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>applyto</ID>
+                    <ToolTip>Apply to</ToolTip>
+                    <Default>StyledElement</Default>
+                </Literal>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>Classe propriétaire de cette propriété.  En règle générale, il s'agit de la classe dans laquelle elle est déclarée.</ToolTip>
+					<Function>ClassName()</Function>
+                    <Default>ownerclass</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[public static readonly AttachedProperty<$type$> $property$Property = AvaloniaProperty.RegisterAttached<$ownerclass$, $applyto$, $type$>(
+            "$property$");$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

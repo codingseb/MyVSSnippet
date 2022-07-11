@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Définir une DirectProperty (DependencyProperty) Avalonia UI</Title>
+            <Shortcut>avapropd</Shortcut>
+            <Description>Extrait de code pour une DirectProperty Avalonia UI</Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>Avalonia</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Type de propriété</ToolTip>
+                    <Default>object</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Nom de propriété</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>Classe propriétaire de cette propriété.  En règle générale, il s'agit de la classe dans laquelle elle est déclarée.</ToolTip>
+					<Function>ClassName()</Function>
+                    <Default>ownerclass</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[public static readonly DirectProperty<$ownerclass$, $type$> $property$Property = AvaloniaProperty.RegisterDirect<$ownerclass$, $type$>(
+            nameof($property$),
+            o => o.$property$,
+            (o, value) => o.$property$ = value);
+            
+        private $type$ _$property$;
+
+        public $type$ $property$
+        {
+            get { return _$property$; }
+            set { SetAndRaise($property$Property, ref _$property$, value); }
+        }$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
