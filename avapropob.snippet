@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Définir une ObservableProperty par champs Avalonia UI</Title>
+            <Shortcut>avapropob</Shortcut>
+            <Description>Extrait de code pour une ObservableProperty Avalonia UI</Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import>  
+				   <Namespace>Avalonia</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Type de propriété</ToolTip>
+                    <Default>object</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Nom de propriété</ToolTip>
+                    <Default>myProperty</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[[ObservableProperty]
+				private $type$ $property$;$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
