@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ViewModelBase class</Title>
+      <Shortcut>viewmodelbase</Shortcut>
+      <Description>Code snippet for ViewModelBase class, implement INotifyPropertyChanged and a method to generate it</Description>
+      <Author>Coding Seb</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+		<Declarations>
+			<Literal>
+				<ID>classname</ID>
+				<Default>ViewModelBase</Default>
+			</Literal>
+		</Declarations>
+		<Imports>   
+			<Import>  
+			   <Namespace>System.Runtime.CompilerServices</Namespace>  
+			</Import>  
+			<Import>  
+			   <Namespace>System.ComponentModel</Namespace>  
+			</Import> 
+		</Imports>  
+      <Code Language="csharp">
+        <![CDATA[
+public class $classname$ : INotifyPropertyChanged
+{
+	public event PropertyChangedEventHandler? PropertyChanged;
+
+	public virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+	{
+		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+	}
+}
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

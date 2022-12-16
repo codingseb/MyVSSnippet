@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>RelayCommand</Title>
+      <Shortcut>relaycommand</Shortcut>
+      <Description>Code snippet for RelayCommand class</Description>
+      <Author>Coding Seb</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>execute</ID>
+          <Default>executeAction</Default>
+        </Literal>
+        <Literal>
+          <ID>canExecute</ID>
+          <Default>canExecutePredicate</Default>
+        </Literal>
+      </Declarations>
+		<Imports>   
+			<Import>  
+			   <Namespace>System.Windows.Input</Namespace>  
+			</Import>  
+		</Imports>  
+      <Code Language="csharp">
+        <![CDATA[
+public class RelayCommand : ICommand
+{
+    private readonly Action<object> execute;
+    private readonly Predicate<object> canExecute;
+
+    public RelayCommand(Action<object> $execute$, Predicate<object> $canExecute$)
+    {
+        this.execute = $execute$ ?? throw new ArgumentNullException(nameof($execute$));
+        this.canExecute = $canExecute$;
+    }
+
+    public event EventHandler CanExecuteChanged
+    {
+        add { CommandManager.RequerySuggested += value; }
+        remove { CommandManager.RequerySuggested -= value; }
+    }
+
+    public bool CanExecute(object parameter)
+    {
+        return canExecute == null || canExecute(parameter);
+    }
+
+    public void Execute(object parameter)
+    {
+        execute(parameter);
+    }
+}
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
