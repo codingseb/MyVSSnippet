@@ -28,33 +28,43 @@
 		</Imports>  
       <Code Language="csharp">
         <![CDATA[
-public class RelayCommand : ICommand
-{
-    private readonly Action<object> execute;
-    private readonly Predicate<object> canExecute;
+			public interface IRelayCommand : ICommand
+			{
+				void RaiseCanExecuteChanged();
+			}
 
-    public RelayCommand(Action<object> $execute$, Predicate<object> $canExecute$)
-    {
-        this.execute = $execute$ ?? throw new ArgumentNullException(nameof($execute$));
-        this.canExecute = $canExecute$;
-    }
+			public class RelayCommand : IRelayCommand
+			{
+				private readonly Action<object> execute;
+				private readonly Predicate<object> canExecute;
 
-    public event EventHandler CanExecuteChanged
-    {
-        add { CommandManager.RequerySuggested += value; }
-        remove { CommandManager.RequerySuggested -= value; }
-    }
+				public RelayCommand(Action<object> executeAction, Predicate<object> canExecutePredicate)
+				{
+					this.execute = executeAction ?? throw new ArgumentNullException(nameof(executeAction));
+					this.canExecute = canExecutePredicate;
+				}
 
-    public bool CanExecute(object parameter)
-    {
-        return canExecute == null || canExecute(parameter);
-    }
+				public event EventHandler CanExecuteChanged
+				{
+					add { CommandManager.RequerySuggested += value; }
+					remove { CommandManager.RequerySuggested -= value; }
+				}
 
-    public void Execute(object parameter)
-    {
-        execute(parameter);
-    }
-}
+				public bool CanExecute(object parameter)
+				{
+					return canExecute == null || canExecute(parameter);
+				}
+
+				public void Execute(object parameter)
+				{
+					execute(parameter);
+				}
+
+				public void RaiseCanExecuteChanged()
+				{
+					CommandManager.InvalidateRequerySuggested();
+				}
+			}
 ]]>
       </Code>
     </Snippet>
