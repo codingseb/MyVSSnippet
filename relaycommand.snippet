@@ -43,6 +43,8 @@
 					this.execute = executeAction ?? throw new ArgumentNullException(nameof(executeAction));
 					this.canExecute = canExecutePredicate;
 				}
+				
+				public RelayCommand(Action<object> executeAction) : this(executeAction, null) { }
 
 				public event EventHandler CanExecuteChanged
 				{
