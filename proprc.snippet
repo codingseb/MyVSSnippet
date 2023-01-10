@@ -20,7 +20,7 @@
 				<Literal>
 					<ID>type</ID>
 					<ToolTip>Property type</ToolTip>
-					<Default>int</Default>
+					<Default>ICommand</Default>
 				</Literal>
 				<Literal>
 					<ID>property</ID>
@@ -28,9 +28,9 @@
 					<Default>MyProperty</Default>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[public ICommand $property$ { get; } = new RelayCommand(_ => 
+			<Code Language="csharp"><![CDATA[public $type$ $property$ { get; } = new RelayCommand(_ => 
 		{
-			//TODO$end$
+			//TODO
 		});$end$]]>
 			</Code>
         </Snippet>
