@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>DIResolve class</Title>
+            <Shortcut>diresolve</Shortcut>
+            <Description>La classe DIResolve comme markup extension pour résoudre des dépendance avec AutoFac</Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import> 
+				   <Namespace>Autofac</Namespace>  				
+				   <Namespace>System</Namespace>  
+				   <Namespace>System.Windows.Markup</Namespace>  
+				</Import>
+            </Imports>
+            <Declarations>
+                <Literal>
+                    <ID>appname</ID>
+                    <ToolTip>Nom du projet</ToolTip>
+                    <Default>Assembly.GetExecutingAssembly().GetName().Name</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[/// <summary>
+/// A markup extension to resolve a type with DI
+/// </summary>
+public class DIResolve : MarkupExtension
+{
+    /// <summary>
+    /// The Type to resolve
+    /// </summary>
+    public Type ResolveType { get; set; }
+
+    /// <summary>
+    /// default constructor
+    /// </summary>
+    public DIResolve()
+    { }
+
+    /// <summary>
+    /// Constructor for direct type specification
+    /// </summary>
+    /// <param name="resolveType">The Type to resolve</param>
+    public DIResolve(Type resolveType)
+    {
+        ResolveType=resolveType;
+    }
+
+    /// <inheritdoc/>
+    public override object ProvideValue(IServiceProvider serviceProvider)
+    {
+        return DI.Container.Resolve(ResolveType);
+    }
+}$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
