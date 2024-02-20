@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>DI static class</Title>
+            <Shortcut>diclass</Shortcut>
+            <Description>La classe DI permet de spécifier comment construire notre application avec l'injection de dépendnance (AutoFac)</Description>
+            <Author>Coding Seb</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>  
+				<Import> 
+				   <Namespace>Autofac</Namespace>  				
+				</Import>
+            </Imports>
+            <Code Language="csharp"><![CDATA[/// <summary>
+/// To specify how to build our application with dependency injection
+/// and get the container
+/// </summary>
+public static class DI
+{
+    /// <summary>
+    /// The container of DI structure
+    /// </summary>
+    public static IContainer Container { get; } = Build();
+
+    private static IContainer Build()
+    {
+        var builder = new ContainerBuilder();
+
+        // To add global middleware
+        //builder.ComponentRegistryBuilder.Registered += (sender, args) =>
+        //{
+        //    args.ComponentRegistration.PipelineBuilding += (_, pipeline) =>
+        //    {
+        //        pipeline.Use(new OnActivationCallInitMiddleware());
+        //    };
+        //};
+		
+		// Register types here
+
+        return builder.Build();
+    }
+}$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
